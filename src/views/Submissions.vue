@@ -5,13 +5,13 @@
         <v-card>
           <v-card-title>Submission Details</v-card-title>
           <v-card-text>
-            <v-row>
+            <v-row class="pb-5">
               <v-col cols="12">
-                <v-select v-model="selectedProblem" :items="problems" label="Select Problem" single-line
-                  hide-details></v-select>
+                <v-select v-model="selectedProblem" :items="$store.state.problems" label="Select Problem" single-line
+                  hide-details clearable></v-select>
               </v-col>
             </v-row>
-            <v-data-table :headers="headers" :items="filteredData"></v-data-table>
+            <v-data-table :headers="headers" :items="filteredData" hide-default-footer></v-data-table>
           </v-card-text>
         </v-card>
       </v-container>
@@ -24,50 +24,48 @@ export default {
   data() {
     return {
       headers: [
-        { text: 'Submission Time', value: 'submissionTime' },
+        { text: 'Submission Time', value: 'subt' },
         { text: 'Status', value: 'status' },
-        { text: 'Submitted By', value: 'submittedBy' },
+        { text: 'Submitted By', value: 'name' },
         { text: 'Problem Title', value: 'problemTitle' },
         { text: 'Language', value: 'language' },
       ],
-      submissions: [
-        {
-          submissionTime: '10:30',
-          status: 'Accepted',
-          submittedBy: 'Mike',
-          problemTitle: 'A',
-          language: 'Python',
-        },
-        {
-          submissionTime: '11:15',
-          status: 'Wrong Answer',
-          submittedBy: 'Brown',
-          problemTitle: 'A',
-          language: 'C++',
-        },
-        {
-          submissionTime: '12:05',
-          status: 'Accepted',
-          submittedBy: 'Ashly',
-          problemTitle: 'A',
-          language: 'Java',
-        },
-        // Add more submissions as needed
-      ],
-      problems: ['A', 'B', 'C', 'D', 'E'],
-      selectedProblem: null,
-
+      // submissions: [
+      //   {
+      //     submissionTime: '10:30',
+      //     status: 'Accepted',
+      //     problemTitle: 'C',
+      //   },
+      //   {
+      //     submissionTime: '11:15',
+      //     status: 'Wrong Answer',
+      //     problemTitle: 'A',
+      //   },
+      //   {
+      //     submissionTime: '12:05',
+      //     status: 'Accepted',
+      //     problemTitle: 'A',
+      //   },
+      // ],
     };
   },
   computed: {
     filteredData() {
-      if (this.selectedProblem) {
-        return this.submissions.filter(submission => submission.problemTitle === this.selectedProblem);
+      if (this.$store.state.selectedProblem) {
+        return this.$store.state.data.filter(submission => submission.problemTitle === this.$store.state.selectedProblem);
       }
       else {
-        return this.submissions;
+        return this.$store.state.data;
       }
     },
+    selectedProblem: {
+      get() {
+        return this.$store.state.selectedProblem
+      },
+      set(newValue) {
+        this.$store.commit('setSelectedProblem', newValue)
+      }
+    }
   },
 };
 </script>
