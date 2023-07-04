@@ -1,4 +1,8 @@
-# scoreup
+# ScoreUp
+
+##Screenshorts
+![Uploading image.png…]()
+![Uploading image.png…]()
 
 ## Project setup
 ```
