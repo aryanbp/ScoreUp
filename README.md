@@ -1,8 +1,8 @@
 # ScoreUp
 
 ## Screenshorts
-![Uploading image.png…]()
-![Uploading image.png…]()
+![page1](https://github.com/aryanbp/ScoreUp/assets/83414513/cf684955-f95e-4373-8fbe-1474b2892143)
+![page2](https://github.com/aryanbp/ScoreUp/assets/83414513/252dbf47-4617-40b0-a642-ae4aba939c6d)
 
 ## Project setup
 ```
