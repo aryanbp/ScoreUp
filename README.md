@@ -1,6 +1,6 @@
 # ScoreUp
 
-##Screenshorts
+## Screenshorts
 ![Uploading image.png…]()
 ![Uploading image.png…]()
 
